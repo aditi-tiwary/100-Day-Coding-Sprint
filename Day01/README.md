@@ -88,6 +88,46 @@ If no family member satisfies both conditions, the answer is `-1`.
 5. Print the youngest member’s number.
    - If no such member exists, print `-1`.
 
+### Distinct K
+
+#### Problem Statement
+
+You wish to help Ashish, who possesses a collection of N strings, some of which may be duplicated, and has been assigned the task of finding the kth unique string.
+
+If the number of unique strings is less than k, he needs to display `-1`. Considering you are Ashish's best friend, can you assist him with this challenge?
+
+#### Input Format
+- The first line contains an integer `N` denoting the number of strings.
+- The next `N` lines contain strings.
+- The next line contains an integer `k`.
+
+#### Output Format
+- Print the `k`th distinct string.
+- If there are fewer than `k` unique strings, print `-1`.
+
+#### Constraints
+- 1 ≤ N ≤ 10³  
+- 1 ≤ length of each string ≤ 10³  
+
+### My Understanding of the Problem
+
+We are given a list of strings where some strings may appear more than once.
+
+A string is considered **distinct** if it appears exactly once in the list.
+
+The task is to find the `k`th such distinct string while maintaining the original order of the input.
+
+If the total number of distinct strings is less than `k`, the output should be `-1`.
+
+### Approach
+
+1. First, count how many times each string appears in the list.
+2. Then, iterate through the list again in the original order.
+3. Each time a string appears exactly once, consider it a distinct string.
+4. Keep a count of such distinct strings.
+5. When the count reaches `k`, return that string.
+6. If the end of the list is reached and fewer than `k` distinct strings are found, return `-1`.
+
 
 ### Language
 Python
