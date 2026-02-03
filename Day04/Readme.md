@@ -1,72 +1,90 @@
 ## Day 04 – Graphs, Trees & Mathematical Patterns
 
-This day focuses on solving problems involving tree traversal, graph concepts, string manipulation, and mathematical patterns. The solutions emphasize clear logic, efficient traversal, and using problem constraints effectively.
+Day 04 focuses on tree traversal, graph-based reasoning, string manipulation, and mathematical pattern recognition.  
+The problems emphasize efficient traversal, pruning using data structure properties, and clean iterative logic.
+
+A total of **4 problems** were solved on this day.
 
 ---
 
-### 1. Find a Way (Longest Marathon Path)
+## Problems Solved
 
-**Problem Summary**  
-The city map is represented as a binary tree where landmarks are nodes and roads are edges.  
+1. [Find a Way](#1-find-a-way)  
+2. [Reverse from Last Occurrence](#2-reverse-from-last-occurrence)  
+3. [Sum of Node’s Value in a Given Range](#3-sum-of-nodes-value-in-a-given-range)  
+4. [Triangle Game](#4-triangle-game)  
+
+---
+
+## 1. Find a Way
+
+📄 **Solution:** [Find A Way.py](Find%20A%20Way.py)
+
+### Problem Summary
+The city is represented as a binary tree where landmarks are nodes and roads are edges.  
 The task is to determine the longest possible simple path between any two landmarks.
 
-**Approach**  
-- The problem reduces to finding the **diameter of a tree**.
-- The tree is treated as an undirected graph.
-- Two BFS traversals are used:
-  1. First BFS finds the farthest node from an arbitrary node.
-  2. Second BFS from that farthest node gives the diameter.
-- The result is measured in **number of edges**, not nodes.
+### Key Idea
+The longest path in a tree is known as the **tree diameter**.
 
-**Key Concept**  
-Tree Diameter using BFS
-
----
-
-### 2. Reverse from Last Occurrence
-
-**Problem Summary**  
-Given a string `s` and a character `ch`, reverse the substring starting from the **last occurrence** of `ch` till the end of the string.
-
-**Approach**  
-- Find the last index of the character using string operations.
-- If the character is not found, return the string unchanged.
-- Otherwise, reverse only the suffix starting from that index.
-
-**Key Concept**  
-String slicing and manipulation
+### Approach
+- Treat the tree as an undirected graph.
+- Perform two BFS traversals:
+  - First BFS finds the farthest node from an arbitrary node.
+  - Second BFS from that node gives the longest distance.
+- The distance obtained represents the diameter in terms of **number of edges**.
 
 ---
 
-### 3. Sum of Node’s Value in a Given Range (BST)
+## 2. Reverse from Last Occurrence
 
-**Problem Summary**  
-Given a Binary Search Tree and a range `[start, end]`, compute the sum of all node values that lie within the range (inclusive).
+📄 **Solution:** [Reverse from Last Occurrence.py](Reverse%20from%20Last%20Occurrence.py)
 
-**Approach**  
-- Use the BST property to prune unnecessary branches:
-  - If a node’s value is smaller than `start`, skip its left subtree.
-  - If a node’s value is greater than `end`, skip its right subtree.
-- Recursively sum only valid nodes.
+### Problem Summary
+Given a string and a character, reverse the substring starting from the **last occurrence** of the given character till the end of the string.
 
-**Key Concept**  
-BST traversal with pruning
+### Key Idea
+Only the suffix of the string needs to be modified.
+
+### Approach
+- Find the last index of the given character.
+- If the character is not present, return the original string.
+- Reverse the suffix and append it to the unchanged prefix.
 
 ---
 
-### 4. Triangle Game
+## 3. Sum of Node’s Value in a Given Range
 
-**Problem Summary**  
-Given a row index `n`, print all the values in the `n`th row of the triangular pattern shown.  
-(Indexing starts from 0.)
+📄 **Solution:** [Sum of Node’s value of a given range.py](Sum%20of%20Node%E2%80%99s%20value%20of%20a%20given%20range.py)
 
-**Approach**  
-- The pattern corresponds to **Pascal’s Triangle**.
-- Each value is a binomial coefficient.
+### Problem Summary
+Given a Binary Search Tree and a range `[start, end]`, compute the sum of all node values lying within the inclusive range.
+
+### Key Idea
+Use the **BST property** to prune unnecessary traversal.
+
+### Approach
+- If the node value is smaller than `start`, skip the left subtree.
+- If the node value is larger than `end`, skip the right subtree.
+- If the node lies within the range, include it and traverse both subtrees.
+
+---
+
+## 4. Triangle Game
+
+📄 **Solution:** [Triangle Game.py](Triangle%20Game.py)
+
+### Problem Summary
+Given a row index `n`, print all the values in the `n`th row of the triangular pattern shown (indexing starts from 0).
+
+### Key Idea
+The pattern corresponds to **Pascal’s Triangle**.
+
+### Approach
+- Each value represents a binomial coefficient.
 - The row is generated iteratively using the relation:
   
 C(n, k) = C(n, k−1) × (n − k + 1) / k
-
 
 - This avoids factorial computation and keeps the solution efficient.
 
